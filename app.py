@@ -1,51 +1,20 @@
 import sys
+import os
 
-str1 = sys.argv[1]
+# Safe parameter handling
+# If an argument is passed, use it; otherwise, use a placeholder
+str1 = sys.argv[1] if len(sys.argv) > 1 else "No_Parameter_Passed"
 
 print("=================================")
-print("String Concatenation Result")
+print("Processing Parameter:", str1)
 print("=================================")
-print("parameter String :", str1)
 
+# Task 2: Rename logic for Experiment 5
+old_name = "sample.txt"
+new_name = "newfile.txt"
 
-# Added Logic
-suffix = "_PROCESSED"
-concatenated_str = str1 + suffix
-char_count = len(str1)
-
-print(f"Concatenated with suffix: {concatenated_str}")
-print(f"Original string length: {char_count}")
-print(f"Uppercase version: {str1.upper()}")
-print(f"Visual Pattern: {'*' * char_count}")
-
-# --- Final 5 lines starts here ---
-is_alpha = str1.isalnum()
-reversed_str = str1[::-1]
-
-print(f"Reversed String: {reversed_str}")
-print(f"Is Alphanumeric: {is_alpha}")
-print("Status: Execution Successful")
-
-# --- Final Logic for Version 4 ---
-with open("user.txt", "w") as f:
-    f.write(f"User: {str1}\nValidated: True")
-
-if char_count > 5:
-    print(f"Access Granted for: {str1}")
+if os.path.exists(old_name):
+    os.rename(old_name, new_name)
+    print(f"Success: {old_name} has been renamed to {new_name}")
 else:
-    print("Warning: Short Username Detected")
-
-# Logic for Experiment 5 - File Handling
-with open("sample.txt", "a+") as f:
-    f.seek(0)
-    content = f.read()
-    print("--- Current sample.txt Content ---")
-    print(content if content else "File is empty")
-
-# Python equivalent for Exp 5 Version 2
-with open("sample.txt", "a") as f:
-    f.write("New data appended via Python\n")
-
-line_count = len(open("sample.txt").readlines())
-print(f"Total lines: {line_count}")
-
+    print(f"Error: {old_name} not found in workspace.")
