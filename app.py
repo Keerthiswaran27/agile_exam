@@ -34,3 +34,10 @@ if char_count > 5:
     print(f"Access Granted for: {str1}")
 else:
     print("Warning: Short Username Detected")
+
+# Logic for Experiment 5 - File Handling
+with open("sample.txt", "a+") as f:
+    f.seek(0)
+    content = f.read()
+    print("--- Current sample.txt Content ---")
+    print(content if content else "File is empty")
