@@ -1,5 +1,5 @@
 import sys
-import os
+
 str1 = sys.argv[1]
 
 print("=================================")
@@ -49,13 +49,3 @@ with open("sample.txt", "a") as f:
 line_count = len(open("sample.txt").readlines())
 print(f"Total lines: {line_count}")
 
-
-# Task 2: Rename sample.txt to newfile.txt
-old_name = "sample.txt"
-new_name = "newfile.txt"
-
-if os.path.exists(old_name):
-    os.rename(old_name, new_name)
-    print(f"Successfully renamed {old_name} to {new_name}")
-else:
-    print(f"Error: {old_name} not found!")
