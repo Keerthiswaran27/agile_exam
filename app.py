@@ -41,3 +41,10 @@ with open("sample.txt", "a+") as f:
     content = f.read()
     print("--- Current sample.txt Content ---")
     print(content if content else "File is empty")
+
+# Python equivalent for Exp 5 Version 2
+with open("sample.txt", "a") as f:
+    f.write("New data appended via Python\n")
+
+line_count = len(open("sample.txt").readlines())
+print(f"Total lines: {line_count}")
