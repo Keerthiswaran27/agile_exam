@@ -25,3 +25,12 @@ reversed_str = str1[::-1]
 print(f"Reversed String: {reversed_str}")
 print(f"Is Alphanumeric: {is_alpha}")
 print("Status: Execution Successful")
+
+# --- Final Logic for Version 4 ---
+with open("user.txt", "w") as f:
+    f.write(f"User: {str1}\nValidated: True")
+
+if char_count > 5:
+    print(f"Access Granted for: {str1}")
+else:
+    print("Warning: Short Username Detected")
